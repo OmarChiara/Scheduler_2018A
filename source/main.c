@@ -33,6 +33,7 @@
 
 #include "pin_mux.h"
 #include "clock_config.h"
+#include "GPIO.h"
 
 #include "gsc_sch_core/gsc_sch_core.h"
 #include "gsc_sch_core_tick_isr.h"
@@ -40,8 +41,8 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define LED_INIT() LED_RED_INIT(LOGIC_LED_ON)
-#define LED_TOGGLE() LED_RED_TOGGLE()
+//#define LED_INIT() LED_RED_INIT(LOGIC_LED_ON)
+//#define LED_TOGGLE() LED_RED_TOGGLE()
 
 /*******************************************************************************
  * Prototypes
@@ -65,7 +66,7 @@ int main(void)
 	BOARD_InitPins();
 	BOARD_BootClockRUN();
 	BOARD_InitDebugConsole();
-
+	GPIO_Init();
 	/* SysTick Configuration */
 	SysTick_Config(48000000U/1000U); //This only applies for ARM Cores with SysTick capability
 
@@ -74,6 +75,7 @@ int main(void)
 
 	/* Execute Scheduler */
 	gsc_sch_core_exec();
+
 }
 
 void SysTick_Handler(void)
