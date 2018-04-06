@@ -7,7 +7,7 @@
 
 #include "BUTTON_LED.h"
 
-void app_button()
+extern void app_button()
 {
 	if (BUTTON_ON)
 	{

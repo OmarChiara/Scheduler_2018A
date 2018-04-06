@@ -94,6 +94,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Scheduler_2018A/HAL_Layer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Scheduler_2018A/drivers_HAL}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Scheduler_2018A/MAL_Layer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/drivers_HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/HAL_Layer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/MAL_Layer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/gsc_scheduler}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/app}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.include.files.1768887004" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files"/>
 								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.20478966" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level"/>
@@ -144,6 +149,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Scheduler_2018A/HAL_Layer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Scheduler_2018A/drivers_HAL}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Scheduler_2018A/MAL_Layer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/drivers_HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/HAL_Layer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/MAL_Layer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/gsc_scheduler}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/UDG_gsc_sch/app}&quot;"/>
 								</option>
 								<option id="gnu.both.asm.option.warnings.nowarn.1600724471" name="Suppress warnings (-W)" superClass="gnu.both.asm.option.warnings.nowarn"/>
 								<option id="gnu.both.asm.option.version.1866328694" name="Announce version (-v)" superClass="gnu.both.asm.option.version"/>
