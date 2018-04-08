@@ -177,7 +177,15 @@ else if ((ruw_ADCValue >= LOW_MIN_DANGER_LIMITUP) && (ruw_ADCValue <= HIGH_MIN_D
 {
 	FAN_100;
 	APP_LED_OFF;
+}
+
 
 }
 
+void app_SafeMode(void)
+{
+	for (x=0; x>=30000; x++)
+	{
+
+	}
 }
