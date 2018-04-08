@@ -9,6 +9,8 @@
 #include "stdtypedef.h"
 #include "fsl_adc16.h"
 #include "app_ADC.h"
+#include "app_Main.c"
+#include "LED.h"
 
  /******************************************
  * Private Macros
@@ -120,7 +122,7 @@ static T_UBYTE app_ADC_IsConversionCompleted(void)
  * Function Name: app_ADC_GetValue
  * Description: TBD
  ***********************************************/
-static T_UWORD app_ADC_GetValue(void)
+extern T_UWORD app_ADC_GetValue(void)
 {
 	//Return Last Conversion Value
 	return ADC16_GetChannelConversionValue(ADC0, APP_ADC_CHANNEL_GROUP);
@@ -157,4 +159,24 @@ void app_ADC_Task(void)
 		//Set Conversion in progress flag
 		rub_ConversionInProgressFlag = TRUE;
 	}
+
+
+}
+
+void app_Main_Task(void)
+{
+app_ADC_Task();
+
+if ((ruw_ADCValue >= MIN_SAFE_LIMIT) && (ruw_ADCValue <= MAX_SAFE_LIMIT))
+{
+	//FAN_100;
+APP_LED_ON;
+}
+else {FAN_100_OFF;}
+//else if ((ruw_ADCValue >= LOW_MIN_DANGER_LIMITUP) && (ruw_ADCValue <= HIGH_MIN_DANGER_LIMITUP))
+//{
+	//FAN_50;
+	APP_LED_OFF;
+//}
+
 }

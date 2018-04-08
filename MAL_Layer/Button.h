@@ -8,6 +8,7 @@
 #ifndef BUTTON_H_
 #define BUTTON_H_
 
+#include "stdtypedef.h"
 #define BUTTON_ON (GPIO_ReadPinInput(GPIOB, LED_BUTTON)==FALSE)
 #include "GPIO.h"
 #include "fsl_gpio.h"
