@@ -6,7 +6,7 @@
  */
 
 #include "BUTTON_LED.h"
-
+/*
 extern void app_button()
 {
 	if (BUTTON_ON)
@@ -20,3 +20,4 @@ extern void app_button()
 		Led_Off();
 	}
 }
+*/

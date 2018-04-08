@@ -13,11 +13,12 @@
 
 #define LED_IS_ON 0U
 #define LED_IS_OFF 1U
+
 #define APP_LED_ON (GPIO_WritePinOutput(GPIOB, APP_LED,LED_IS_ON))
 #define APP_LED_OFF (GPIO_WritePinOutput(GPIOB, APP_LED,LED_IS_OFF))
 #define FAN_50 (GPIO_WritePinOutput(GPIOB, 1U,LED_IS_ON))
-#define FAN_100 (GPIO_WritePinOutput(GPIOB, 2U,LED_IS_ON))
-#define FAN_100_OFF (GPIO_WritePinOutput(GPIOB, 2U,LED_IS_OFF))
+#define FAN_100 (GPIO_WritePinOutput(GPIOB, 2U, 1u))
+#define FAN_100_OFF (GPIO_WritePinOutput(GPIOB, 2U,0u))
 
 #define HEAT_50 (GPIO_WritePinOutput(GPIOB, 3U,LED_IS_ON))
 #define HEAT_100 (GPIO_WritePinOutput(GPIOB, 4U,LED_IS_ON))

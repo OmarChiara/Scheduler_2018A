@@ -8,7 +8,7 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-#define LED_BUTTON 0u
+//#define LED_BUTTON 0u
 #define APP_LED 19u
 
 void GPIO_Init(void);

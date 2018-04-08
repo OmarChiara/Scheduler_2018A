@@ -169,14 +169,15 @@ app_ADC_Task();
 
 if ((ruw_ADCValue >= MIN_SAFE_LIMIT) && (ruw_ADCValue <= MAX_SAFE_LIMIT))
 {
-	//FAN_100;
-APP_LED_ON;
+	FAN_100_OFF;
+    APP_LED_ON;
 }
-else {FAN_100_OFF;}
-//else if ((ruw_ADCValue >= LOW_MIN_DANGER_LIMITUP) && (ruw_ADCValue <= HIGH_MIN_DANGER_LIMITUP))
-//{
-	//FAN_50;
+
+else if ((ruw_ADCValue >= LOW_MIN_DANGER_LIMITUP) && (ruw_ADCValue <= HIGH_MIN_DANGER_LIMITUP))
+{
+	FAN_100;
 	APP_LED_OFF;
-//}
+
+}
 
 }

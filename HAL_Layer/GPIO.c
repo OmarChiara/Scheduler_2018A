@@ -17,7 +17,7 @@ void GPIO_Init(void)
 	//ENABLE PORTB CLOCK
 	CLOCK_EnableClock(kCLOCK_PortB);
 
-	//SET BUTTON PORT AS GPIO
+/*	//SET BUTTON PORT AS GPIO
 	port_pin_config_t ls_portb_mux;
 
 
@@ -32,7 +32,7 @@ void GPIO_Init(void)
 	    	ls_portbcfg.pinDirection = kGPIO_DigitalInput;
 	    	ls_portbcfg.outputLogic= 0u;
 
-	    	GPIO_PinInit(GPIOB, LED_BUTTON,&ls_portbcfg);
+	    	GPIO_PinInit(GPIOB, LED_BUTTON,&ls_portbcfg); */
 
 	    	//SET LED PORT AS GPIO
 

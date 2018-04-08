@@ -5,8 +5,9 @@
  *      Author: Misael
  */
 #include "Button.h"
-
+/*
 void Button_Pressed()
 {
 BUTTON_ON;
 }
+*/
