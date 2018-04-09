@@ -11,5 +11,6 @@
 extern void app_ADC_Init(void);
 extern void app_ADC_Task(void);
 extern void app_Main_Task(void);
+extern void app_ADC200 (void);
 
 #endif /* APP_ADC_H_ */
