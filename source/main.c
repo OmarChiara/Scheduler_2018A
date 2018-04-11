@@ -34,7 +34,7 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "GPIO.h"
-
+#include "app_PWM.h"
 #include "gsc_sch_core/gsc_sch_core.h"
 #include "gsc_sch_core_tick_isr.h"
 #include "core_cm0plus.h"
@@ -63,15 +63,20 @@ volatile unsigned int sys_tick_counter = 0;
 int main(void)
 {
 	/* Board pin, clock, debug console init */
+
 	BOARD_InitPins();
 	BOARD_BootClockRUN();
 	BOARD_InitDebugConsole();
 	GPIO_Init();
-	app_ADC_Init();
+	//app_ADC_Init();
+	app_PWM_Init();
 	/* SysTick Configuration */
-	SysTick_Config(48000000U/1000U); //This only applies for ARM Cores with SysTick capability
+	 SysTick_Config(48000000U/1000U); //This only applies for ARM Cores with SysTick capability
 
-	/* Scheduler Initialization and tasks initialization  */
+
+
+	// Scheduler Initialization and tasks initialization
+
 	gsc_sch_core_Init();
 
 	/* Execute Scheduler */
@@ -79,8 +84,13 @@ int main(void)
 
 }
 
+
+
+
 void SysTick_Handler(void)
  {
  	sys_tick_counter++;
  	gsc_sch_core_tick_isr();
  }
+
+

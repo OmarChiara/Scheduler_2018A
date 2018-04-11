@@ -193,8 +193,8 @@ if (ruw_SafeMode!=1)
 //Heat at 50%
 	else if ((ruw_ADCValue >= LOW_MIN_DANGER_LIMITDOWN) && (ruw_ADCValue <= HIGH_MIN_DANGER_LIMITDOWN))
 		{
-		HEAT_50_OFF;
-		HEAT_100;
+		HEAT_100_OFF;
+		HEAT_50;
 		FAN_50_OFF;
 		FAN_100_OFF;
 	    APP_LED_OFF;
@@ -226,8 +226,9 @@ if (ruw_SafeMode!=1)
 //FAN at 100% if it remains 30 seconds in this way, safe mode is activated
 	else if ((ruw_ADCValue >= LOW_MAX_DANGER_LIMITUP) && (ruw_ADCValue <= HIGH_MAX_DANGER_LIMITUP))
 	{
+    FAN_50_OFF;
 	HEAT_50_OFF;
-	HEAT_50_OFF;
+	HEAT_100_OFF;
 	FAN_100_OFF;
 	APP_LED_OFF;
 	FAN_100;
@@ -249,8 +250,8 @@ if (ruw_SafeMode!=1)
 else if(ruw_SafeMode !=0)
 	{
 	HEAT_50_OFF;
-	HEAT_50_OFF;
-	FAN_100_OFF;
+	HEAT_100_OFF;
+	FAN_50_OFF;
 	APP_LED_ON;
 	FAN_100_OFF;
 
