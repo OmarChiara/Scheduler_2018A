@@ -12,6 +12,6 @@
 #define APP_LED 19u
 
 void GPIO_Init(void);
-extern void GPIO_SetPinAsInput (void);
+extern void app_PinsAsInput (void);
 
 #endif /* GPIO_H_ */

@@ -61,10 +61,13 @@ void GPIO_Init(void)
 
 }
 
-void GPIO_SetPinAsInput (void)
+void app_PinsAsInput (void)
 {
+
+
+
 	port_pin_config_t ls_LedMode1PinMux;
-    ls_LedMode1PinMux.mux = kPORT_MuxAsGpio;
+    ls_LedMode1PinMux.mux = kPORT_PinDisabledOrAnalog;
 
 
 	PORT_SetPinConfig(PORTB,0u, &ls_LedMode1PinMux);
@@ -72,15 +75,16 @@ void GPIO_SetPinAsInput (void)
 	PORT_SetPinConfig(PORTB,2u, &ls_LedMode1PinMux);
 	PORT_SetPinConfig(PORTB,3u, &ls_LedMode1PinMux);
     PORT_SetPinConfig(PORTB,APP_LED, &ls_LedMode1PinMux);
-	gpio_pin_config_t ls_LedMode1PinCfg;
+//	gpio_pin_config_t ls_LedMode1PinCfg;
 	//SET LED PORT AS OUTPUT
-	ls_LedMode1PinCfg.pinDirection = kGPIO_DigitalInput;
+//	ls_LedMode1PinCfg.pinDirection = kGPIO_DigitalInput;
 
 	//PIN Initialization
-
+/*
 	GPIO_PinInit(GPIOB, 0u,&ls_LedMode1PinCfg);
 	GPIO_PinInit(GPIOB, 1u,&ls_LedMode1PinCfg);
 	GPIO_PinInit(GPIOB, 2u,&ls_LedMode1PinCfg);
 	GPIO_PinInit(GPIOB, 3u,&ls_LedMode1PinCfg);
 	GPIO_PinInit(GPIOB, APP_LED,&ls_LedMode1PinCfg);
+*/
 }

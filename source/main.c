@@ -68,8 +68,8 @@ int main(void)
 	BOARD_BootClockRUN();
 	BOARD_InitDebugConsole();
 	GPIO_Init();
-	//app_ADC_Init();
-	app_PWM_Init();
+	app_ADC_Init();
+	//app_PWM_Init();
 	/* SysTick Configuration */
 	 SysTick_Config(48000000U/1000U); //This only applies for ARM Cores with SysTick capability
 

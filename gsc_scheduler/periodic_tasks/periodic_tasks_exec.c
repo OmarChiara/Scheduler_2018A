@@ -28,6 +28,7 @@
 #include "periodic_tasks_exec.h"
 #include "periodic_tasks_modules.h"
 #include "app_PWM.h"
+#include "app_Main.h"
 
 
 /**************************************************************
@@ -41,7 +42,7 @@
  **************************************************************/
  void periodic_tasks_exec_5tks(void)
  {
-	 app_PWM_SetValue(100);
+	 //app_PWM_SetValue(100);
  }
  
  /**************************************************************
@@ -57,7 +58,8 @@
  {
 	 //app_PWM_SetValue(100);
 	 //app_PWM_Task();
-	 app_PWM_SetValue(5);
+	 //app_PWM_SetValue(5);
+	 app_Main_Task();
  }
  
  /**************************************************************

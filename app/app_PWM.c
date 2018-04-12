@@ -16,7 +16,7 @@
  * Variables
  ******************************************/
 T_UBYTE rub_PWMDutyCycle = 0u;
-E_PWM_STATE re_PWMState = STATE_PWM_UP;
+
 
 
 void app_PWM_IncreaseDutyCycle(void);
@@ -74,72 +74,14 @@ void app_PWM_SetValue(T_UBYTE lub_Duty)
  * Function Name: app_PWM_Task
  * Description: TBD
  ***********************************************/
-void app_PWM_Task(void)
+void app_PWM_Task50(void)
 {
-	/* PWM State Machine */
-	switch(re_PWMState)
-	{
-	case STATE_PWM_UP:
-	{
-		app_PWM_IncreaseDutyCycle();
-	}break;
-	case STATE_PWM_DOWN:
-	{
-		app_PWM_DecreaseDutyCycle();
-	}break;
-	case STATE_PWM_ERROR:
-	default:
-	{
-		rub_PWMDutyCycle = 0u;
-		re_PWMState = STATE_PWM_UP;
-	}break;
-	}
-
-	/* Set PWM DutyCycle */
-	app_PWM_SetValue(rub_PWMDutyCycle);
+	app_PWM_SetValue(5);
 }
 
-/***********************************************
- * Function Name: app_PWM_IncreaseDutyCycle
- * Description: TBD
- ***********************************************/
-void app_PWM_IncreaseDutyCycle(void)
+void app_PWM_Task100(void)
 {
-	if(rub_PWMDutyCycle < 100u)
-	{
-		rub_PWMDutyCycle++;
-	}
-	else if(rub_PWMDutyCycle == 100u)
-	{
-		rub_PWMDutyCycle--;
-		re_PWMState = STATE_PWM_DOWN;
-	}
-	else
-	{//rub_PWMDutyCycle > 100
-		/* Code never reached */
-		re_PWMState = STATE_PWM_ERROR;
-	}
+	app_PWM_SetValue(10);
 }
 
-/***********************************************
- * Function Name: app_PWM_DecreaseDutyCycle
- * Description: TBD
- ***********************************************/
-void app_PWM_DecreaseDutyCycle(void)
-{
-	if(rub_PWMDutyCycle > 0u)
-	{
-		rub_PWMDutyCycle--;
-	}
-	else if(rub_PWMDutyCycle == 0u)
-	{
-		rub_PWMDutyCycle++;
-		re_PWMState = STATE_PWM_UP;
-	}
-	else
-	{//rub_PWMDutyCycle < 0
-		/* Code never reached */
-		rub_PWMDutyCycle = 0u;
-		re_PWMState = STATE_PWM_ERROR;
-	}
-}
+

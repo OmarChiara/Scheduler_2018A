@@ -9,8 +9,9 @@
 #include "stdtypedef.h"
 #include "fsl_adc16.h"
 #include "app_ADC.h"
-#include "app_Main.c"
+#include "app_Main.h"
 #include "LED.h"
+#include "GPIO.h"
 
  /******************************************
  * Private Macros
@@ -37,11 +38,11 @@
  /******************************************
  * Private Variables
  ******************************************/
-static T_UWORD ruw_ADCValue = 0u;
+T_UWORD ruw_ADCValue = 0u;
 static T_UBYTE rub_ConversionInProgressFlag = FALSE;
-T_UWORD ruw_SafeCount;
-T_UWORD ruw_SafeMode;
 T_UBYTE ruw_ADC200;
+static T_UWORD ruw_SafeCount;
+static T_UWORD ruw_SafeMode=0;
  /******************************************
  * Private Prototypes
  ******************************************/
@@ -165,11 +166,32 @@ void app_ADC_Task(void)
 
 }
 
+
+
+//ADC Working at 200ms
+
+void app_ADC200 (void)
+{
+	if (ruw_ADC200 >= 20)
+	{
+		app_ADC_Task();
+		ruw_ADC200=0;
+	}
+
+	else
+	{
+		ruw_ADC200++;
+	}
+
+}
+
 void app_Main_Task(void)
 {
+
 //Starts in standard mode
 if (ruw_SafeMode!=1)
 {
+
 	app_ADC_Task();
 //Heat at 100%, if it remains 30s, then safemode is on
 	if ((ruw_ADCValue >= LOW_MAX_DANGER_LIMITDOWN) && (ruw_ADCValue <= HIGH_MAX_DANGER_LIMITDOWN))
@@ -180,7 +202,7 @@ if (ruw_SafeMode!=1)
 			FAN_100_OFF;
 		    APP_LED_OFF;
 		    	//Safe mode counter, after 30 seconds, it activates itself
-		    	if(ruw_SafeCount>= 1500)
+		    	if(ruw_SafeCount>= 3000)
 		    		{
 		    			ruw_SafeMode=1;
 		    		}
@@ -234,9 +256,10 @@ if (ruw_SafeMode!=1)
 	FAN_100;
 
 //safemode counter, after 30 seconds it activates itself
-		if(ruw_SafeCount>= 1500)
+		if(ruw_SafeCount>= 3000)
 		{
 			ruw_SafeMode=1;
+
 		}
 		else
 		{
@@ -249,38 +272,22 @@ if (ruw_SafeMode!=1)
 //Safe mode, only ADc module is working at 200ms
 else if(ruw_SafeMode !=0)
 	{
-	HEAT_50_OFF;
+/*	HEAT_50_OFF;
 	HEAT_100_OFF;
 	FAN_50_OFF;
 	APP_LED_ON;
-	FAN_100_OFF;
+	FAN_100_OFF;*/
+	app_PinsAsInput();
 
     app_ADC200 (); //ADC at 200ms
 
     //if ADC comes back at low risk temperature then standard mode is activated
     	if(((ruw_ADCValue > LOW_MIN_DANGER_LIMITDOWN) && (ruw_ADCValue < HIGH_MIN_DANGER_LIMITDOWN)) | ((ruw_ADCValue > LOW_MIN_DANGER_LIMITUP) && (ruw_ADCValue < HIGH_MIN_DANGER_LIMITUP)))
     	{
+    		GPIO_Init();
     		ruw_SafeMode=0;
     	}
 
-	}
-
-}
-
-
-//ADC Working at 200ms
-
-void app_ADC200 (void)
-{
-	if (ruw_ADC200 >= 20)
-	{
-		app_ADC_Task();
-		ruw_ADC200=0;
-	}
-
-	else
-	{
-		ruw_ADC200++;
 	}
 
 }

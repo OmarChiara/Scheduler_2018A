@@ -23,4 +23,6 @@
 #define LOW_MAX_DANGER_LIMITUP  3001U
 #define HIGH_MAX_DANGER_LIMITUP 4100U
 
+//extern void app_Main_Task(void);
+
 #endif /* APP_MAIN_H_ */
