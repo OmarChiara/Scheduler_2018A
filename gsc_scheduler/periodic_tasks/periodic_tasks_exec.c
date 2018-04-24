@@ -56,9 +56,7 @@
  **************************************************************/
  void periodic_tasks_exec_10tks(void)
  {
-	 //app_PWM_SetValue(100);
-	 //app_PWM_Task();
-	 //app_PWM_SetValue(5);
+/* Temp_Req_1 app runs every 10ms */
 	 app_Main_Task();
  }
  
